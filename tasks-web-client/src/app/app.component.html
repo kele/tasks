@@ -12,14 +12,14 @@
 <div cdkDropListGroup>
   <div>
     <h1>TODO</h1>
-    <mat-list role="list" cdkDropList [cdkDropListData]="todo" (cdkDropListDropped)="drop($event)">
-      <mat-list-item role="listitem" *ngFor="let item of todo" cdkDrag>{{item}}</mat-list-item>
+    <mat-list role="list" cdkDropList [cdkDropListData]="items['TODO']" (cdkDropListDropped)="drop($event)">
+      <mat-list-item role="listitem" *ngFor="let item of items['TODO']" cdkDrag>{{item.content}}</mat-list-item>
     </mat-list>
   </div>
   <div>
     <h1>Done</h1>
-    <mat-list role="list" cdkDropList [cdkDropListData]="done" (cdkDropListDropped)="drop($event)">
-      <mat-list-item role="listitem" *ngFor="let item of done" cdkDrag>{{item}}</mat-list-item>
+    <mat-list role="list" cdkDropList [cdkDropListData]="items['Done']" (cdkDropListDropped)="drop($event)">
+      <mat-list-item role="listitem" *ngFor="let item of items['Done']" cdkDrag>{{item.content}}</mat-list-item>
     </mat-list>
   </div>
 </div>
