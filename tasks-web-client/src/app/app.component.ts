@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Client, Service, Task } from "./oto.gen";
+import * as api from "./oto.gen";
 
 @Component({
   selector: 'app-root',
@@ -8,11 +7,11 @@ import { Client, Service, Task } from "./oto.gen";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  service: Service;
+  service: api.Service;
 
   title = 'tasks-web-client';
 
-  items : { [category: string] : Task[] } = {};
+  items : { [category: string] : api.Task[] } = {};
 
   categories = [
     "TODO",
@@ -21,7 +20,7 @@ export class AppComponent {
   ];
 
   constructor() {
-    this.service = new Service(new Client());
+    this.service = new api.Service(new api.Client());
   }
 
   ngOnInit() {
@@ -37,16 +36,5 @@ export class AppComponent {
         }
       )
     });
-  }
-
-  drop(event: CdkDragDrop<Task[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
-    }
   }
 }

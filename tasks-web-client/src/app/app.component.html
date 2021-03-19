@@ -2,7 +2,7 @@
   <button mat-icon-button aria-label="Menu">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Task app</span>
+  <span>Tasks</span>
   <span class="menu-spacer"></span>
   <button mat-icon-button aria-label="Settings">
     <mat-icon>settings</mat-icon>
@@ -11,9 +11,6 @@
 
 <div cdkDropListGroup >
   <div *ngFor="let category of categories">
-    <h1>{{category}}</h1>
-    <mat-list role="list" cdkDropList [cdkDropListData]="items[category]" (cdkDropListDropped)="drop($event)">
-      <mat-list-item role="listitem" *ngFor="let item of items[category]" cdkDrag>{{item.content}}</mat-list-item>
-    </mat-list>
+    <app-task-list [category]="category" [items]="items[category]"></app-task-list>
   </div>
 </div>

@@ -1,0 +1,5 @@
+<h1>{{category}}</h1>
+
+<mat-list role="list" cdkDropList [cdkDropListData]="items" (cdkDropListDropped)="drop($event)">
+    <mat-list-item role="listitem" *ngFor="let item of items" cdkDrag>{{item.content}}</mat-list-item>
+</mat-list>
