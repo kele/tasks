@@ -9,3 +9,7 @@ This way we don't have to deal with CORS.
 ## API Bindings
 
 Run `bindings.sh` in the root directory.
+
+## TODO
+
+[Here](https://docs.google.com/document/d/1SiA036efgGyZlULWgM-iTV8FMGe67hZk92uuOzn7Ufs).
